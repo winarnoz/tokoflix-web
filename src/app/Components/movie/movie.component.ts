@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../Services/api/api.service';
+import { DataService } from '../../Services/data/data.service';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
@@ -7,9 +10,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
   
-  constructor() { }
+  movieId:any;
+  movieData:any;
+
+  constructor(
+    private apiService: ApiService,
+    private dataService: DataService,
+    private route: Router,
+    private activeRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.activeRoute.params.subscribe(params=>{
+      this.movieId = this.getIdFromParam(params.movieInfo);
+      this.getMovieDetail();
+
+    });
+  }
+
+  getMovieDetail() {
+    this.apiService.getMovieDetail(this.movieId).subscribe(
+      res=>{
+        this.movieData = res;
+        console.log(res);
+      },
+      err=> {
+        console.log(err);
+      }
+    );
+  }
+
+  getIdFromParam(fullParam:any) {
+    let texts: any;
+    texts = fullParam.split("-");
+    return texts[0];
   }
 
 }

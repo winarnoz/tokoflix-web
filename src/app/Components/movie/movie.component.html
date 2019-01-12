@@ -1,3 +1,30 @@
-<p>
-  movie works!
-</p>
+
+<ng-container *ngIf="movieData!=null ; else NotFound"> 
+  <div class="pages p-2 container justify-content-center" >
+    <div class="row p-2">
+      <div class="col-6">
+        <img src="{{apiService.getFullImageUrl(movieData.poster_path)}}" class="poster">
+      </div>
+      <div class="col-6 ml-0 pl-0 pr-4">
+        <div class="title">{{movieData.title}}</div>
+        <div>Rating: {{movieData.vote_average}}</div>
+        <div>Durasi: {{movieData.runtime}} menit</div>
+        <div>Harga: Rp. {{apiService.getMoviePrice(movieData.vote_average)|number}}</div>
+        <div>{{dataService.isMovieOwned(movieData.id)}}</div>
+        <div><button class="btn btn-md btn-block btn-success">BUY</button></div>
+      </div>
+    </div>
+    <div class="row mt-2 p-2">
+      <div class="col">
+        <span style="font-weight:bold">SYNOPSIS:</span><br>
+        {{movieData.overview}}
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #NotFound>
+  <div class="pages p-2 container justify-content-center" >
+    NOT FOUND
+  </div>
+</ng-template>
+

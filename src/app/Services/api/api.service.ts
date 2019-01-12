@@ -10,24 +10,25 @@ import { map, filter, switchMap } from 'rxjs/operators';
 export class ApiService {
 
   apiKey:string = 'db8d07787ba86e43c98bab42e4cc83c5';
+  defaultLanguage = "en-US";
 
   constructor(
     private http:HttpClient
   ) { }
   //now_playing?api_key=db8d07787ba86e43c98bab42e4cc83c5&language=id&page=1&region=ID
-  getNowPlayingMovies(region:any="ID",language:any="en-US",page:number=1):Observable<any> {
+  getNowPlayingMovies(region:any="ID",language:any=this.defaultLanguage,page:number=1):Observable<any> {
     return this.http.get(environment.apiUrl+"/"+environment.apiVersion+"/movie/now_playing?api_key="+this.apiKey+"&language="+language+"&page="+page);
   }
 
-  getMovieDetail(movieId:number,language:any="id"):Observable<any> {
+  getMovieDetail(movieId:number,language:any=this.defaultLanguage):Observable<any> {
     return this.http.get(environment.apiUrl+"/"+environment.apiVersion+"/movie/"+movieId+"?api_key="+this.apiKey+"&language="+language);
   }
 
-  getSimilarMovies(movieId:number,language:any="id",page:number=1):Observable<any> {
+  getSimilarMovies(movieId:number,language:any=this.defaultLanguage,page:number=1):Observable<any> {
     return this.http.get(environment.apiUrl+"/"+environment.apiVersion+"/movie/"+movieId+"/similar?api_key="+this.apiKey+"&language="+language+"&page="+page);
   }
 
-  getRecommendedMovies(movieId:number,language:any="id",page:number=1):Observable<any> {
+  getRecommendedMovies(movieId:number,language:any=this.defaultLanguage,page:number=1):Observable<any> {
     return this.http.get(environment.apiUrl+"/"+environment.apiVersion+"/movie/"+movieId+"/recommendations?api_key="+this.apiKey+"&language="+language+"&page="+page);
   }
 

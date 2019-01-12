@@ -1,11 +1,11 @@
-<div class="row item" *ngFor="let item of items">
+<div class="row item" *ngFor="let item of items" (click)="goToDetail(item.id, item.title)">
   <div class="col-3 px-0 mr-0">
     <img src="{{apiService.getFullImageUrl(item.poster_path)}}" class="poster">
   </div>
   <div class="col-9 ">
     <div>{{item.title}}</div>
     <div>Rp. {{apiService.getMoviePrice(item.vote_average)|number}}</div>
+    <div>Rating: {{item.vote_average}}</div>
     <div>{{dataService.isMovieOwned(item.id)}}</div>
-    <div>{{apiService.getMovieSlug(item.title)}}</div>
   </div>
 </div>

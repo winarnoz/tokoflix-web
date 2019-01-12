@@ -5,3 +5,38 @@
 .pages {
     margin-top: 3rem;
 }
+
+.title {
+    font-weight: bold;
+    font-size: 120%;
+    line-height: 20px;
+    margin-bottom: 8px;
+}
+
+.label {
+    font-size: 90%;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.rating {
+    font-weight: bold;
+}
+
+.badge {
+    color: white;
+}
+
+.owned {
+    background-color: $green_color;
+}
+
+.not-owned {
+    background-color: $red_color;
+}
+
+.buy-button {
+    margin-top:8px;
+}

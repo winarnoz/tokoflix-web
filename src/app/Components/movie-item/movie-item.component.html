@@ -1,11 +1,14 @@
-<div class="row item" *ngFor="let item of items" (click)="goToDetail(item.id, item.title)">
+<div class="row item justify-content-center" *ngFor="let item of items" (click)="goToDetail(item.id, item.title)">
   <div class="col-3 px-0 mr-0">
     <img src="{{apiService.getFullImageUrl(item.poster_path)}}" class="poster">
   </div>
   <div class="col-9 ">
-    <div>{{item.title}}</div>
-    <div>Rp. {{apiService.getMoviePrice(item.vote_average)|number}}</div>
-    <div>Rating: {{item.vote_average}}</div>
-    <div>{{dataService.isMovieOwned(item.id)}}</div>
+    <div class="title">{{item.title}}</div>
+    <div><span class="label">Harga:</span> <span class="price">Rp.{{apiService.getMoviePrice(item.vote_average)|number}}</span> </div>
+    <div><span class="label">Rating:</span> <span class="rating"> {{item.vote_average}}</span></div>
+    <div class="badge " [ngClass]="{
+      'owned': dataService.isMovieOwned(item.id)=='OWNED',
+      'not-owned': dataService.isMovieOwned(item.id)=='NOT OWNED'
+    }">{{dataService.isMovieOwned(item.id)}}</div>
   </div>
 </div>

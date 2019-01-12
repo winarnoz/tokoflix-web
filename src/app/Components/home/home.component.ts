@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.loadMovies();
+    this.dataService.getUserBalance();
   }
 
   loadMovies() {
@@ -29,6 +30,7 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-  
+
+ 
 
 }

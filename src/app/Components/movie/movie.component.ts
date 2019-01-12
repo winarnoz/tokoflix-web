@@ -40,6 +40,14 @@ export class MovieComponent implements OnInit {
     );
   }
 
+  buyMovie(movieId:any) {
+    if(this.dataService.buyMovies(movieId, this.apiService.getMoviePrice(this.movieData.vote_average))) {
+      console.log("buy success");
+    } else {
+      console.log("buy failed, insufficient balance");
+    }
+  }
+
   getIdFromParam(fullParam:any) {
     let texts: any;
     texts = fullParam.split("-");

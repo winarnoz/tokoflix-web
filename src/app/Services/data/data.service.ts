@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Observable, BehaviorSubject } from "rxjs";
 import { map, filter, switchMap } from 'rxjs/operators';
+import { ApiService } from '../api/api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class DataService {
   initialBalance:number = 100000;
 
   constructor(
-
+    private apiService: ApiService
   ) { }
 
   getUserBalance() {
@@ -26,6 +27,21 @@ export class DataService {
 
   setBalanceForNewUser() {
     localStorage.setItem("balance",JSON.stringify(this.initialBalance));
+  }
+
+  buyMovies(movieId:any,amount:any) { //it's bad practice to set amount from client, but nvm since it's dummy
+    let balance:any = this.getUserBalance();
+    if(balance < amount) {
+      return false;
+    } else {
+      //console.log(this.apiService.getMoviePrice(this.mov));
+      console.log(amount);
+      let remainingBalance = balance - amount;
+      console.log(remainingBalance);
+      localStorage.setItem("balance",JSON.stringify(remainingBalance));
+      this.saveOwnedMovies(movieId);
+      return true;
+    }
   }
 
   getOwnedMovies() {
@@ -51,7 +67,7 @@ export class DataService {
   saveOwnedMovies(movieId:number) {
     let arr: any = [];
     arr = this.getOwnedMovies();
-    arr.push(movieId);
+    this.isEmpty(arr) ? arr=[movieId] : arr.push(movieId);
     localStorage.setItem("ownedMovieIds",JSON.stringify(arr));
   }
 

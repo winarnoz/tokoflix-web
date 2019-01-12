@@ -11,7 +11,7 @@
         <div>Durasi: {{movieData.runtime}} menit</div>
         <div>Harga: Rp. {{apiService.getMoviePrice(movieData.vote_average)|number}}</div>
         <div>{{dataService.isMovieOwned(movieData.id)}}</div>
-        <div><button class="btn btn-md btn-block btn-success">BUY</button></div>
+        <div><button class="btn btn-md btn-block btn-success" (click)="buyMovie(movieData.id)" *ngIf="dataService.isMovieOwned(movieData.id)=='NOT OWNED'">BUY</button></div>
       </div>
     </div>
     <div class="row mt-2 p-2">

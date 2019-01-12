@@ -15,7 +15,7 @@ export class ApiService {
     private http:HttpClient
   ) { }
   //now_playing?api_key=db8d07787ba86e43c98bab42e4cc83c5&language=id&page=1&region=ID
-  getNowPlayingMovies(region:any="ID",language:any="id",page:number=1):Observable<any> {
+  getNowPlayingMovies(region:any="ID",language:any="en-US",page:number=1):Observable<any> {
     return this.http.get(environment.apiUrl+"/"+environment.apiVersion+"/movie/now_playing?api_key="+this.apiKey+"&language="+language+"&page="+page);
   }
 
@@ -49,6 +49,11 @@ export class ApiService {
       price = 0;
     }
     return price;
+  }
+
+  getMovieSlug(title:any){
+    title = title.trim().toLowerCase().replace(new RegExp(" |!|~|:","g"),"-");
+    return title;
   }
 
 }

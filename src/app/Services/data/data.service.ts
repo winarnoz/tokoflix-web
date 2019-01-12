@@ -37,10 +37,14 @@ export class DataService {
   isMovieOwned(movieId:any) {
     let owned:any = [];
     owned = this.getOwnedMovies();
-    if(owned.indexOf(movieId)==-1) {
+    if(owned == null) {
       return "NOT OWNED";
     } else {
-      return "OWNED";
+      if(owned.indexOf(movieId)==-1) {
+        return "NOT OWNED";
+      } else {
+        return "OWNED";
+      }
     }
   }
 

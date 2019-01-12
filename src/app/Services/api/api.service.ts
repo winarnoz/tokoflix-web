@@ -31,4 +31,8 @@ export class ApiService {
     return this.http.get(environment.apiUrl+"/"+environment.apiVersion+"/movie/"+movieId+"/recommendations?api_key="+this.apiKey+"&language="+language+"&page="+page);
   }
 
+  getFullImageUrl(path:any) {
+    return environment.imageUrl+"/"+path;
+  }
+
 }

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {

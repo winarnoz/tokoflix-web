@@ -9,6 +9,8 @@ import { DataService } from '../../Services/data/data.service';
 })
 export class HomeComponent implements OnInit {
 
+  items:any = [];
+
   constructor(
     private apiService: ApiService,
     private dataService: DataService
@@ -21,9 +23,9 @@ export class HomeComponent implements OnInit {
   loadMovies() {
     this.apiService.getNowPlayingMovies().subscribe(
       res=>{
+        this.items = res.results;
         console.log(res);
-      },err=>{
-
+      },err=>{ 
       }
     );
   }

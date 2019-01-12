@@ -1,3 +1,9 @@
-<p>
-  movie-item works!
-</p>
+<div class="row item" *ngFor="let item of items">
+  <div class="col-3 px-0 mr-0">
+    <img src="{{apiService.getFullImageUrl(item.poster_path)}}" class="poster">
+  </div>
+  <div class="col-9 ">
+    <div>{{item.title}}</div>
+    
+  </div>
+</div>

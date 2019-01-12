@@ -1,0 +1,12 @@
+@import "../../../variables.scss";
+
+.navbar {
+    background-color: $panel_color;
+}
+
+.app-name {
+    color: $green_color;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 120%;
+}

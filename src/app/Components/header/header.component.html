@@ -1,3 +1,8 @@
-<p>
-  header works!
-</p>
+<nav  class="navbar navbar-expand-md fixed-top shadow-sm">
+        <div (click)="goBack()"  style="position:absolute; left:1rem; size:2rem; color:gray;" *ngIf="back==true"  >
+            <i class="fa fa-angle-left large fa-2x"></i>
+        </div>
+        <div align="center" style="width:100%;">
+          <span class="app-name">Tokoflix</span>
+        </div>
+</nav>

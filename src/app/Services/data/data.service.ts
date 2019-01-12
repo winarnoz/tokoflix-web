@@ -28,6 +28,29 @@ export class DataService {
     localStorage.setItem("balance",JSON.stringify(this.initialBalance));
   }
 
+  getOwnedMovies() {
+    let ids:any=[];
+    ids = JSON.parse(localStorage.getItem("ownedMovieIds"));
+    return ids;
+  }
+
+  isMovieOwned(movieId:any) {
+    let owned:any = [];
+    owned = this.getOwnedMovies();
+    if(owned.indexOf(movieId)==-1) {
+      return "NOT OWNED";
+    } else {
+      return "OWNED";
+    }
+  }
+
+  saveOwnedMovies(movieId:number) {
+    let arr: any = [];
+    arr = this.getOwnedMovies();
+    arr.push(movieId);
+    localStorage.setItem("ownedMovieIds",JSON.stringify(arr));
+  }
+
   isEmpty(obj) {
     for(var key in obj) {
         if(obj.hasOwnProperty(key))

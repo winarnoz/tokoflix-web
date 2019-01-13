@@ -1,0 +1,4 @@
+<div class="recommended-item" *ngFor="let item of movies">
+    <div class=""><img src="{{getMovieImage(item.poster_path)}}" class="recommended-poster"></div>
+    <div class="recommended-title">{{item.title}}</div>
+</div>

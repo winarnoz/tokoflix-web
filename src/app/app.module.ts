@@ -16,6 +16,7 @@ import { ApiService } from './Services/api/api.service';
 import { DataService } from './Services/data/data.service';
 import { CastComponent } from './Components/cast/cast.component';
 import { SimilarMovieComponent } from './Components/similar-movie/similar-movie.component';
+import { RecommendedMovieComponent } from './Components/recommended-movie/recommended-movie.component';
 
 //libraries
 
@@ -29,7 +30,8 @@ import { SimilarMovieComponent } from './Components/similar-movie/similar-movie.
     HomeLayoutComponent,
     MovieItemComponent,
     CastComponent,
-    SimilarMovieComponent
+    SimilarMovieComponent,
+    RecommendedMovieComponent
   ],
   imports: [
     BrowserModule,

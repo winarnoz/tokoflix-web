@@ -1,0 +1,25 @@
+.recommended-item {
+    border-left: 1px white solid;
+    text-align: center;
+    padding: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    display: inline-block;
+    color:#969696;
+    white-space: nowrap;
+    white-space: -moz-nowrap;
+    font-weight: bolder;
+    border-radius: 5px;
+    width: 15rem;
+    position: relative;
+    
+}
+
+.recommended-poster {
+    max-width: 100px;
+}
+
+.recommended-title {
+    font-size: 70%;
+    overflow: auto;
+}

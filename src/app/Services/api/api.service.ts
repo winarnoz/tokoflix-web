@@ -11,7 +11,7 @@ export class ApiService {
 
   apiKey:string = 'db8d07787ba86e43c98bab42e4cc83c5';
   defaultLanguage = "en-US";
-  region:any = "ID";
+  region:any = "US";
 
   constructor(
     private http:HttpClient

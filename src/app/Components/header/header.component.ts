@@ -11,6 +11,7 @@ import { DataService } from '../../Services/data/data.service';
 export class HeaderComponent implements OnInit {
 
   back: boolean = false;
+  balance:any;
 
   constructor(
     private dataService: DataService,
@@ -20,6 +21,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     
+  }
+
+  getUserBalance() {
+    this.balance = this.dataService.getUserBalance();
+    return this.balance;
   }
   
   goHome() {

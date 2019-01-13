@@ -1,5 +1,6 @@
 <ng-container *ngIf="movieData!=null ; else NotFound"> 
   <div class="pages p-2 container justify-content-center" >
+    <app-message-alert [message]="message" [type]="type" *ngIf="message!=null"></app-message-alert>
     <div class="row p-2">
       <div class="col-6">
         <img src="{{apiService.getFullImageUrl(movieData.poster_path)}}" class="poster">
@@ -7,7 +8,7 @@
       <div class="col-6 ml-0 pl-0 pr-4">
         <div class="title">{{movieData.title}}</div>
         <div>Rating: {{dataService.normalizeRating(movieData.vote_average)}}</div>
-        <div>Duration: {{movieData.runtime}} menit</div>
+        <div>Duration: {{movieData.runtime}} minutes</div>
         <div>Release: {{movieData.release_date}}</div>
         <div> Price: 
             <ng-container *ngIf="movieData.vote_average!=0 ; else free"> 

@@ -13,6 +13,8 @@ export class MovieComponent implements OnInit {
   
   movieId:any;
   movieData:any;
+  message:any;
+  type:any;
 
   constructor(
     private apiService: ApiService,
@@ -47,10 +49,11 @@ export class MovieComponent implements OnInit {
   }
 
   buyMovie(movieId:any) {
+    this.message=null;
     if(this.dataService.buyMovies(movieId, this.apiService.getMoviePrice(this.movieData.vote_average))) {
-      console.log("buy success");
+      this.showAlert("Purchase success","success");
     } else {
-      console.log("buy failed, insufficient balance");
+      this.showAlert("Purchase failed, insufficient balance","error");
     }
   }
 
@@ -58,6 +61,11 @@ export class MovieComponent implements OnInit {
     let texts: any;
     texts = fullParam.split("-");
     return texts[0];
+  }
+
+  showAlert(message:any,type:any) {
+    this.message=message;
+    this.type=type;
   }
 
 }

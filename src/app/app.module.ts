@@ -21,6 +21,7 @@ import { RecommendedMovieComponent } from './Components/recommended-movie/recomm
 //libraries
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { MessageAlertComponent } from './Components/message-alert/message-alert.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     MovieItemComponent,
     CastComponent,
     SimilarMovieComponent,
-    RecommendedMovieComponent
+    RecommendedMovieComponent,
+    MessageAlertComponent
   ],
   imports: [
     BrowserModule,

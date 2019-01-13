@@ -1,0 +1,11 @@
+<ng-container *ngIf="type=='error'; else ifSuccess">
+    <div class="alert alert-danger message">
+        <strong>{{message}}</strong>
+    </div>
+</ng-container>
+<ng-template #ifSuccess>
+    <div class="alert alert-success message">
+        <strong>{{message}}</strong>
+    </div>
+</ng-template>
+  

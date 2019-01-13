@@ -14,6 +14,7 @@ import { MovieItemComponent } from './Components/movie-item/movie-item.component
 //services
 import { ApiService } from './Services/api/api.service';
 import { DataService } from './Services/data/data.service';
+import { CastComponent } from './Components/cast/cast.component';
 
 //libraries
 
@@ -25,7 +26,8 @@ import { DataService } from './Services/data/data.service';
     HomeComponent,
     MovieComponent,
     HomeLayoutComponent,
-    MovieItemComponent
+    MovieItemComponent,
+    CastComponent
   ],
   imports: [
     BrowserModule,

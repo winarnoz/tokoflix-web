@@ -23,6 +23,12 @@
         {{movieData.overview}}
       </div>
     </div>
+    <div class="row mt-2 p-2">
+      <div class="col">
+          <span style="font-weight:bold">CAST:</span>
+          <app-cast [movieId]="movieId" class="cast-container p-2"></app-cast>    
+      </div>
+    </div>
   </div>
 </ng-container>
 <ng-template #NotFound>

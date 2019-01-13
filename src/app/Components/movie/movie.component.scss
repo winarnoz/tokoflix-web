@@ -1,3 +1,16 @@
+.cast-container{
+    background-color:#fafafa;
+    overflow-x: auto;
+    overflow: -webkit-paged-x;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    margin-right: 10px;
+    padding: 5px;
+    width: 100%;
+}
+
 .poster {
     max-width: 150px;
 }

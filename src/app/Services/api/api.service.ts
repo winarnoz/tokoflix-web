@@ -17,7 +17,7 @@ export class ApiService {
   ) { }
   //now_playing?api_key=db8d07787ba86e43c98bab42e4cc83c5&language=id&page=1&region=ID
   getNowPlayingMovies(region:any="ID",language:any=this.defaultLanguage,page:number=1):Observable<any> {
-    return this.http.get(environment.apiUrl+"/"+environment.apiVersion+"/movie/now_playing?api_key="+this.apiKey+"&language="+language+"&page="+page);
+    return this.http.get(environment.apiUrl+"/"+environment.apiVersion+"/movie/now_playing?api_key="+this.apiKey+"&language="+language+"&page="+page+"&region="+region);
   }
 
   getMovieDetail(movieId:number,language:any=this.defaultLanguage):Observable<any> {
@@ -30,6 +30,10 @@ export class ApiService {
 
   getRecommendedMovies(movieId:number,language:any=this.defaultLanguage,page:number=1):Observable<any> {
     return this.http.get(environment.apiUrl+"/"+environment.apiVersion+"/movie/"+movieId+"/recommendations?api_key="+this.apiKey+"&language="+language+"&page="+page);
+  }
+
+  getMovieCredits(movieId:number):Observable<any> {
+    return this.http.get(environment.apiUrl+"/"+environment.apiVersion+"/movie/"+movieId+"/credits?api_key="+this.apiKey);
   }
 
   getFullImageUrl(path:any) {
@@ -56,5 +60,7 @@ export class ApiService {
     title = title.trim().toLowerCase().replace(new RegExp(" |!|~|:","g"),"-");
     return title;
   }
+
+  get
 
 }

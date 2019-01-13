@@ -41,7 +41,7 @@ export class ApiService {
     return environment.imageUrl+"/"+path;
   }
 
-  getMoviePrice(rating:any):number {
+  getMoviePrice(rating:any):any {
     let price: number;
     if(rating >= 1 && rating <=3) {
       price = 3500;

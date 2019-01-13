@@ -79,4 +79,11 @@ export class DataService {
     return true;
   }
 
+  normalizeRating(rating:any) {
+    if(rating==0) {
+      rating = "N/A";
+    }
+    return rating;
+  }
+
 }

@@ -26,4 +26,8 @@ export class MovieItemComponent implements OnInit {
     this.route.navigateByUrl('movie/'+movieId+"-"+title);
   }
 
+  onScroll() {
+    console.log("scrolled");
+  }
+
 }

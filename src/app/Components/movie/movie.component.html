@@ -6,10 +6,17 @@
       </div>
       <div class="col-6 ml-0 pl-0 pr-4">
         <div class="title">{{movieData.title}}</div>
-        <div>Rating: {{movieData.vote_average}}</div>
+        <div>Rating: {{dataService.normalizeRating(movieData.vote_average)}}</div>
         <div>Duration: {{movieData.runtime}} menit</div>
         <div>Release: {{movieData.release_date}}</div>
-        <div>Price: Rp. {{apiService.getMoviePrice(movieData.vote_average)|number}}</div>
+        <div> Price: 
+            <ng-container *ngIf="movieData.vote_average!=0 ; else free"> 
+                Rp.{{apiService.getMoviePrice(movieData.vote_average)|number}}
+            </ng-container>
+            <ng-template #free>
+                FREE
+            </ng-template>
+        </div>
         <div class="badge" [ngClass]="{
           'owned': dataService.isMovieOwned(movieData.id)=='OWNED',
           'not-owned': dataService.isMovieOwned(movieData.id)=='NOT OWNED'

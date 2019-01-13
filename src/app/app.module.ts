@@ -20,6 +20,7 @@ import { RecommendedMovieComponent } from './Components/recommended-movie/recomm
 
 //libraries
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
+    InfiniteScrollModule
   ],
   providers: [
     ApiService,

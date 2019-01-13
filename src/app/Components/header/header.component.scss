@@ -20,3 +20,17 @@
     font-style: italic;
     font-size: 130%;
 }
+
+.balance-corner {
+    position:absolute; 
+    right:1rem; 
+    size:2rem; 
+    color:white;
+    width: 5rem;
+    padding: 1px;
+    text-align: center;
+    background-color: $green_color;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 80%;
+}

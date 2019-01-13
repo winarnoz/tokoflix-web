@@ -21,6 +21,7 @@ export class MovieComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.scrollTo(0,0);
     this.activeRoute.params.subscribe(params=>{
       this.movieId = this.getIdFromParam(params.movieInfo);
       this.getMovieDetail();
@@ -29,6 +30,7 @@ export class MovieComponent implements OnInit {
   }
 
   getMovieDetail() {
+    window.scrollTo(0,0);
     this.apiService.getMovieDetail(this.movieId).subscribe(
       res=>{
         this.movieData = res;

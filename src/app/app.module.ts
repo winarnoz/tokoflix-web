@@ -19,7 +19,7 @@ import { SimilarMovieComponent } from './Components/similar-movie/similar-movie.
 import { RecommendedMovieComponent } from './Components/recommended-movie/recommended-movie.component';
 
 //libraries
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { RecommendedMovieComponent } from './Components/recommended-movie/recomm
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule,
   ],
   providers: [
     ApiService,

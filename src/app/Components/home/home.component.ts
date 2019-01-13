@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../Services/api/api.service';
 import { DataService } from '../../Services/data/data.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private dataService: DataService
+    private dataService: DataService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -22,11 +24,14 @@ export class HomeComponent implements OnInit {
   }
 
   loadMovies() {
+    this.spinner.show();
     this.apiService.getNowPlayingMovies().subscribe(
       res=>{
         this.items = res.results;
         console.log(res);
+        this.spinner.hide();
       },err=>{ 
+        this.spinner.hide();
       }
     );
   }

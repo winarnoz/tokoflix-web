@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../Services/api/api.service';
 import { DataService } from '../../Services/data/data.service';
 import { Router,ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-movie',
@@ -17,7 +18,8 @@ export class MovieComponent implements OnInit {
     private apiService: ApiService,
     private dataService: DataService,
     private route: Router,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -31,13 +33,15 @@ export class MovieComponent implements OnInit {
 
   getMovieDetail() {
     window.scrollTo(0,0);
+    this.spinner.show();
     this.apiService.getMovieDetail(this.movieId).subscribe(
       res=>{
         this.movieData = res;
         console.log(res);
+        this.spinner.hide();
       },
       err=> {
-        console.log(err);
+        this.spinner.hide();
       }
     );
   }

@@ -3,6 +3,7 @@ import { ApiService } from '../../Services/api/api.service';
 import { DataService } from '../../Services/data/data.service';
 import { environment } from '../../../environments/environment';
 import { Router,ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-similar-movie',
@@ -17,7 +18,8 @@ export class SimilarMovieComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private dataService: DataService,
-    private route: Router
+    private route: Router,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {

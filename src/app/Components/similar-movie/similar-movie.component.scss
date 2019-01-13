@@ -1,4 +1,4 @@
-.cast-item {
+.similar-item {
     border-left: 1px white solid;
     text-align: center;
     padding: 6px;
@@ -10,14 +10,16 @@
     white-space: -moz-nowrap;
     font-weight: bolder;
     border-radius: 5px;
-    width: 5rem;
+    width: 15rem;
     position: relative;
+    
 }
 
-.cast-poster {
-    max-width: 50px;
+.similar-poster {
+    max-width: 100px;
 }
 
-.cast-name {
-    font-size: 50%;
+.similar-title {
+    font-size: 70%;
+    overflow: auto;
 }

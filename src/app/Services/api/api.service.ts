@@ -11,12 +11,13 @@ export class ApiService {
 
   apiKey:string = 'db8d07787ba86e43c98bab42e4cc83c5';
   defaultLanguage = "en-US";
+  region:any = "ID";
 
   constructor(
     private http:HttpClient
   ) { }
   //now_playing?api_key=db8d07787ba86e43c98bab42e4cc83c5&language=id&page=1&region=ID
-  getNowPlayingMovies(region:any="ID",language:any=this.defaultLanguage,page:number=1):Observable<any> {
+  getNowPlayingMovies(region:any=this.region,language:any=this.defaultLanguage,page:number=1):Observable<any> {
     return this.http.get(environment.apiUrl+"/"+environment.apiVersion+"/movie/now_playing?api_key="+this.apiKey+"&language="+language+"&page="+page+"&region="+region);
   }
 

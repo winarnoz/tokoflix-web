@@ -1,0 +1,4 @@
+<div class="similar-item" *ngFor="let item of movies">
+    <div class=""><img src="{{getMovieImage(item.poster_path)}}" class="similar-poster"></div>
+    <div class="similar-title">{{item.title}}</div>
+</div>

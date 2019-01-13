@@ -62,6 +62,8 @@ export class ApiService {
     return title;
   }
 
-  get
+  getVideos(movieId:any) {
+    return this.http.get(environment.apiUrl+"/"+environment.apiVersion+"/movie/"+movieId+"/videos?api_key="+this.apiKey);
+  }
 
 }

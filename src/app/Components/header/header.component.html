@@ -3,7 +3,7 @@
             <i class="fa fa-angle-left large fa-2x"></i>
         </div>
         <div align="center" style="width:100%;">
-          <span class="app-name">Tokoflix</span>
+          <span class="app-name" (click)="goHome()">Tokoflix</span>
         </div>
         <div class="balance-corner">
             IDR {{dataService.getUserBalance()|number}}

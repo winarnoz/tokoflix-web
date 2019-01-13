@@ -22,6 +22,10 @@ export class HeaderComponent implements OnInit {
     
   }
   
+  goHome() {
+    this.router.navigateByUrl('');
+  }
+
   goBack() {
     this.location.back();
   }

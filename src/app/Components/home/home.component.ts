@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   page:number = 1;
   maxPage:number;
   language:any = "en-US";
-  region:any = "US";
+  region:any = "ID";
 
   constructor(
     private apiService: ApiService,
